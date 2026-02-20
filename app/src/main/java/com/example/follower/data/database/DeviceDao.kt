@@ -65,13 +65,22 @@ interface DeviceDao {
     @Query("SELECT * FROM device_sightings WHERE timestamp >= :since ORDER BY timestamp DESC")
     suspend fun getAllSightingsSince(since: Long): List<DeviceSighting>
 
+    /**
+     * Approximate distinct location count using ~500m grid cells.
+     * Multiplier 200 ≈ 1 / 0.005° ≈ 500m at mid-latitudes, consistent with the
+     * location clustering threshold used by [SuspicionCalculator].
+     */
     @Query("""
         SELECT COUNT(DISTINCT
-            CAST((latitude * 10000) AS INTEGER) || '_' || CAST((longitude * 10000) AS INTEGER)
+            CAST((latitude * 200) AS INTEGER) || '_' || CAST((longitude * 200) AS INTEGER)
         ) FROM device_sightings
         WHERE deviceMacAddress = :macAddress
     """)
     suspend fun getDistinctLocationCountForDevice(macAddress: String): Int
+
+    /** Count of unique devices seen since a given timestamp. */
+    @Query("SELECT COUNT(DISTINCT deviceMacAddress) FROM device_sightings WHERE timestamp >= :since")
+    suspend fun getUniqueDeviceCountSince(since: Long): Int
 
     @Query("DELETE FROM device_sightings WHERE timestamp < :before")
     suspend fun deleteOldSightings(before: Long): Int

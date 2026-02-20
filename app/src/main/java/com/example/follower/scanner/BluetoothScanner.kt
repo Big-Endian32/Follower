@@ -202,20 +202,51 @@ class BluetoothScanner(
         val accuracy = locationAccuracyProvider()
 
         val device = scanResult.device
+        val scanRecord = scanResult.scanRecord
+
+        // Extract advertising data for fingerprinting (survives MAC rotation)
+        val manufacturerData = extractManufacturerData(scanRecord)
+        val serviceUuids = scanRecord?.serviceUuids?.map { it.toString() }
+        val txPowerLevel = scanRecord?.txPowerLevel?.takeIf { it != Int.MIN_VALUE }
+
         val result = ScanResult(
             macAddress = device.address,
             deviceType = DeviceType.BLUETOOTH_LE,
-            deviceName = scanResult.scanRecord?.deviceName ?: device.name,
+            deviceName = scanRecord?.deviceName ?: device.name,
             rssi = scanResult.rssi,
             latitude = location.first,
             longitude = location.second,
             locationAccuracy = accuracy,
             bluetoothClass = device.bluetoothClass?.deviceClass,
-            bondState = device.bondState
+            bondState = device.bondState,
+            manufacturerData = manufacturerData,
+            serviceUuids = serviceUuids,
+            txPowerLevel = txPowerLevel
         )
 
         scope.launch(Dispatchers.IO) {
             emitResult(result)
         }
+    }
+
+    /**
+     * Extract the first manufacturer-specific data entry from a BLE scan record.
+     * Returns the raw bytes (company ID little-endian + payload) or null if absent.
+     */
+    private fun extractManufacturerData(
+        scanRecord: android.bluetooth.le.ScanRecord?
+    ): ByteArray? {
+        val sparse = scanRecord?.manufacturerSpecificData ?: return null
+        if (sparse.size() == 0) return null
+
+        val key = sparse.keyAt(0)
+        val payload = sparse.get(key) ?: return null
+
+        // Reconstruct full manufacturer data: 2-byte company ID (LE) + payload
+        val full = ByteArray(2 + payload.size)
+        full[0] = (key and 0xFF).toByte()
+        full[1] = ((key shr 8) and 0xFF).toByte()
+        payload.copyInto(full, 2)
+        return full
     }
 }
