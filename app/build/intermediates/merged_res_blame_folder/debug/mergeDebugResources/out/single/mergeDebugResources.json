@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "com.example.follower.app-debug-59:/drawable_ic_scan.xml.flat",
+        "source": "com.example.follower.app-main-61:/drawable/ic_scan.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/layout_item_alert.xml.flat",
+        "source": "com.example.follower.app-main-61:/layout/item_alert.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/drawable_circle_indicator.xml.flat",
+        "source": "com.example.follower.app-main-61:/drawable/circle_indicator.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/layout_activity_devices.xml.flat",
+        "source": "com.example.follower.app-main-61:/layout/activity_devices.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.follower.app-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/layout_activity_settings.xml.flat",
+        "source": "com.example.follower.app-main-61:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.follower.app-main-61:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/layout_activity_alerts.xml.flat",
+        "source": "com.example.follower.app-main-61:/layout/activity_alerts.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/drawable_ic_usb.xml.flat",
+        "source": "com.example.follower.app-main-61:/drawable/ic_usb.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.follower.app-main-61:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.follower.app-main-61:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/drawable_ic_settings.xml.flat",
+        "source": "com.example.follower.app-main-61:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/layout_activity_main.xml.flat",
+        "source": "com.example.follower.app-main-61:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/layout_item_device.xml.flat",
+        "source": "com.example.follower.app-main-61:/layout/item_device.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/drawable_ic_warning.xml.flat",
+        "source": "com.example.follower.app-main-61:/drawable/ic_warning.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/xml_usb_device_filter.xml.flat",
+        "source": "com.example.follower.app-main-61:/xml/usb_device_filter.xml"
+    },
+    {
+        "merged": "com.example.follower.app-debug-59:/drawable_rounded_background.xml.flat",
+        "source": "com.example.follower.app-main-61:/drawable/rounded_background.xml"
+    }
+]

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Follower</string>
+
+    <!-- Main Screen -->
+    <string name="scanning_active">Scanning Active</string>
+    <string name="scanning_paused">Scanning Paused</string>
+    <string name="mode_standard">Standard Mode (Bluetooth + WiFi AP)</string>
+    <string name="mode_enhanced">Enhanced Mode (Full WiFi Monitor)</string>
+
+    <!-- Threat Levels -->
+    <string name="threat_none">No threats detected</string>
+    <string name="threat_low">Low - Possible follower</string>
+    <string name="threat_medium">Medium - Likely being followed</string>
+    <string name="threat_high">High - Confirmed tracking device</string>
+
+    <!-- Device Types -->
+    <string name="device_type_bluetooth">Bluetooth</string>
+    <string name="device_type_ble">Bluetooth LE</string>
+    <string name="device_type_wifi_ap">WiFi Access Point</string>
+    <string name="device_type_wifi_probe">WiFi Probe</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_scanning">Scanning Service</string>
+    <string name="notification_channel_alerts">Tracking Alerts</string>
+    <string name="notification_scanning_title">Follower Detection Active</string>
+    <string name="notification_scanning_text">Monitoring for tracking devices</string>
+    <string name="notification_threat_title">Potential Tracker Detected!</string>
+    <string name="notification_threat_text">A device may be following you</string>
+
+    <!-- USB Adapter -->
+    <string name="usb_adapter_connected">USB WiFi Adapter Connected</string>
+    <string name="usb_adapter_disconnected">USB WiFi Adapter Disconnected</string>
+    <string name="usb_permission_title">USB Access Required</string>
+    <string name="usb_permission_message">Allow Follower to access the WiFi adapter for enhanced tracking detection?</string>
+
+    <!-- Devices Screen -->
+    <string name="devices_title">Devices</string>
+    <string name="devices_suspicious_header">Suspicious Devices</string>
+    <string name="devices_nearby_header">All Nearby Devices</string>
+    <string name="devices_suspicious_empty">No suspicious devices detected</string>
+    <string name="devices_nearby_empty">No devices nearby. Make sure scanning is active.</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_scan_interval">Scan Interval</string>
+    <string name="settings_alert_threshold">Alert Threshold</string>
+    <string name="settings_background_scanning">Background Scanning</string>
+
+    <string name="settings_header_appearance">Appearance</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_system">System</string>
+
+    <string name="settings_header_thresholds">Suspicion Thresholds</string>
+    <string name="settings_low_threshold">Low → Medium threshold (score)</string>
+    <string name="settings_high_threshold">Medium → High threshold (score)</string>
+
+    <string name="settings_header_location">Location Detection</string>
+    <string name="settings_cluster_radius">Distinct-location radius</string>
+    <string name="settings_min_locations">Min distinct locations for alert</string>
+
+    <string name="settings_header_duration">Following Duration</string>
+    <string name="settings_continuous_following">Continuous following alert (min)</string>
+    <string name="settings_total_following">Total following alert (min)</string>
+
+    <string name="settings_header_advanced">Advanced</string>
+    <string name="settings_calibration_mode">Calibration Mode</string>
+    <string name="settings_calibration_samples">%d calibration samples collected</string>
+    <string name="settings_scan_only_moving">Scan only when moving (saves battery)</string>
+
+    <string name="settings_privacy_note">All data stays on-device. No information is uploaded to any server. Device identifiers are never shared.</string>
+    <string name="settings_reset_defaults">Reset to Defaults</string>
+    <string name="settings_reset_confirm_title">Reset Settings?</string>
+    <string name="settings_reset_confirm_message">This will restore all detection thresholds to their defaults and clear calibration data.</string>
+
+    <string name="settings_meters_fmt">%d m</string>
+    <string name="settings_minutes_fmt">%d min</string>
+
+    <!-- Alerts Screen -->
+    <string name="alerts_title">Alerts</string>
+    <string name="alerts_tab_unread">Unread</string>
+    <string name="alerts_tab_all">All</string>
+    <string name="alerts_empty">No alerts yet. Alerts appear when a device exceeds the suspicion threshold.</string>
+    <string name="alert_unknown_device">Unknown Device</string>
+    <string name="alert_score_fmt">Score: %d</string>
+    <string name="alert_details_fmt">Seen %d times across %d locations · Following for %d min</string>
+    <string name="alert_action_dismiss">Dismiss</string>
+    <string name="alert_action_whitelist">Whitelist</string>
+    <string name="alert_action_flag">Flag</string>
+
+    <!-- Actions -->
+    <string name="action_start_scan">Start Scanning</string>
+    <string name="action_stop_scan">Stop Scanning</string>
+    <string name="action_clear_history">Clear History</string>
+    <string name="action_export_data">Export Data</string>
+
+    <!-- Permissions -->
+    <string name="permission_rationale_location">Location permission is required to scan for nearby Bluetooth and WiFi devices.</string>
+    <string name="permission_rationale_bluetooth">Bluetooth permission is required to detect nearby tracking devices.</string>
+</resources>

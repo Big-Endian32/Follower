@@ -1,0 +1,529 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.follower"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Bluetooth Permissions -->
+12    <uses-permission
+12-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:6:5-95
+13        android:name="android.permission.BLUETOOTH"
+13-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:6:22-65
+14        android:maxSdkVersion="30" />
+14-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:6:66-92
+15    <uses-permission
+15-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:7:5-101
+16        android:name="android.permission.BLUETOOTH_ADMIN"
+16-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:7:22-71
+17        android:maxSdkVersion="30" />
+17-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:7:72-98
+18    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+18-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:8:5-73
+18-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:8:22-70
+19    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+19-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:9:5-76
+19-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:9:22-73
+20
+21    <!-- WiFi Permissions -->
+22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+22-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:12:5-76
+22-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:12:22-73
+23    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+23-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:13:5-76
+23-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:13:22-73
+24
+25    <!-- Location Permissions (required for Bluetooth/WiFi scanning) -->
+26    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+26-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:16:5-79
+26-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:16:22-76
+27    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+27-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:17:5-81
+27-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:17:22-78
+28    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+28-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:18:5-85
+28-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:18:22-82
+29
+30    <!-- Foreground Service -->
+31    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+31-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:21:5-77
+31-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:21:22-74
+32    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+32-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:22:5-86
+32-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:22:22-83
+33    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+33-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:23:5-77
+33-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:23:22-74
+34
+35    <!-- Wake Lock for background scanning -->
+36    <uses-permission android:name="android.permission.WAKE_LOCK" />
+36-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:26:5-68
+36-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:26:22-65
+37
+38    <!-- Activity Recognition (battery optimization: scan only when moving) -->
+39    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+39-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:29:5-79
+39-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:29:22-76
+40
+41    <!-- USB Host Feature (optional - for Tier 2) -->
+42    <uses-feature
+42-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:32:5-87
+43        android:name="android.hardware.usb.host"
+43-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:32:19-59
+44        android:required="false" />
+44-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:32:60-84
+45
+46    <!-- Bluetooth Feature -->
+47    <uses-feature
+47-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:35:5-87
+48        android:name="android.hardware.bluetooth"
+48-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:35:19-60
+49        android:required="true" />
+49-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:35:61-84
+50    <uses-feature
+50-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:36:5-91
+51        android:name="android.hardware.bluetooth_le"
+51-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:36:19-63
+52        android:required="false" />
+52-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:36:64-88
+53
+54    <!-- Location Feature -->
+55    <uses-feature
+55-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:39:5-90
+56        android:name="android.hardware.location.gps"
+56-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:39:19-63
+57        android:required="true" />
+57-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:39:64-87
+58
+59    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+59-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:24:5-79
+59-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:24:22-76
+60    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+60-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:25:5-81
+60-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:25:22-78
+61
+62    <permission
+62-->[androidx.core:core:1.12.0] /Users/johnburnard/.gradle/caches/8.13/transforms/b2bb6262fa9cbd433d97d280a7a57e84/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+63        android:name="com.example.follower.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+63-->[androidx.core:core:1.12.0] /Users/johnburnard/.gradle/caches/8.13/transforms/b2bb6262fa9cbd433d97d280a7a57e84/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+64        android:protectionLevel="signature" />
+64-->[androidx.core:core:1.12.0] /Users/johnburnard/.gradle/caches/8.13/transforms/b2bb6262fa9cbd433d97d280a7a57e84/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+65
+66    <uses-permission android:name="com.example.follower.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+66-->[androidx.core:core:1.12.0] /Users/johnburnard/.gradle/caches/8.13/transforms/b2bb6262fa9cbd433d97d280a7a57e84/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+66-->[androidx.core:core:1.12.0] /Users/johnburnard/.gradle/caches/8.13/transforms/b2bb6262fa9cbd433d97d280a7a57e84/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+67
+68    <application
+68-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:41:5-106:19
+69        android:name="com.example.follower.FollowerApplication"
+69-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:42:9-44
+70        android:allowBackup="true"
+70-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:43:9-35
+71        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+71-->[androidx.core:core:1.12.0] /Users/johnburnard/.gradle/caches/8.13/transforms/b2bb6262fa9cbd433d97d280a7a57e84/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+72        android:debuggable="true"
+73        android:extractNativeLibs="false"
+74        android:icon="@mipmap/ic_launcher"
+74-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:44:9-43
+75        android:label="@string/app_name"
+75-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:45:9-41
+76        android:roundIcon="@mipmap/ic_launcher_round"
+76-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:46:9-54
+77        android:supportsRtl="true"
+77-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:47:9-35
+78        android:testOnly="true"
+79        android:theme="@style/Theme.Follower" >
+79-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:48:9-46
+80
+81        <!-- Main Activity -->
+82        <activity
+82-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:52:9-69:20
+83            android:name="com.example.follower.ui.main.MainActivity"
+83-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:53:13-49
+84            android:exported="true"
+84-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:54:13-36
+85            android:launchMode="singleTop"
+85-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:55:13-43
+86            android:theme="@style/Theme.Follower" >
+86-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:56:13-50
+87            <intent-filter>
+87-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:57:13-60:29
+88                <action android:name="android.intent.action.MAIN" />
+88-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:58:17-69
+88-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:58:25-66
+89
+90                <category android:name="android.intent.category.LAUNCHER" />
+90-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:59:17-77
+90-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:59:27-74
+91            </intent-filter>
+92
+93            <!-- USB Device Attached Intent Filter -->
+94            <intent-filter>
+94-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:63:13-65:29
+95                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+95-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:64:17-90
+95-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:64:25-87
+96            </intent-filter>
+97
+98            <meta-data
+98-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:66:13-68:61
+99                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+99-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:67:17-79
+100                android:resource="@xml/usb_device_filter" />
+100-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:68:17-58
+101        </activity>
+102
+103        <!-- Devices Activity -->
+104        <activity
+104-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:72:9-75:53
+105            android:name="com.example.follower.ui.devices.DevicesActivity"
+105-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:73:13-55
+106            android:exported="false"
+106-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:74:13-37
+107            android:theme="@style/Theme.Follower" />
+107-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:75:13-50
+108
+109        <!-- Alerts Activity -->
+110        <activity
+110-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:78:9-81:53
+111            android:name="com.example.follower.ui.alerts.AlertsActivity"
+111-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:79:13-53
+112            android:exported="false"
+112-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:80:13-37
+113            android:theme="@style/Theme.Follower" />
+113-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:81:13-50
+114
+115        <!-- Settings Activity -->
+116        <activity
+116-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:84:9-87:53
+117            android:name="com.example.follower.ui.settings.SettingsActivity"
+117-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:85:13-57
+118            android:exported="false"
+118-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:86:13-37
+119            android:theme="@style/Theme.Follower" />
+119-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:87:13-50
+120
+121        <!-- Scanning Foreground Service -->
+122        <service
+122-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:90:9-94:56
+123            android:name="com.example.follower.service.ScanningService"
+123-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:91:13-52
+124            android:enabled="true"
+124-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:92:13-35
+125            android:exported="false"
+125-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:93:13-37
+126            android:foregroundServiceType="location" />
+126-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:94:13-53
+127
+128        <!-- Boot Receiver for auto-start -->
+129        <receiver
+129-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:97:9-104:20
+130            android:name="com.example.follower.service.BootReceiver"
+130-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:98:13-49
+131            android:enabled="true"
+131-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:99:13-35
+132            android:exported="false" >
+132-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:100:13-37
+133            <intent-filter>
+133-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:101:13-103:29
+134                <action android:name="android.intent.action.BOOT_COMPLETED" />
+134-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:102:17-79
+134-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:102:25-76
+135            </intent-filter>
+136        </receiver>
+137
+138        <activity
+138-->[com.google.android.gms:play-services-base:18.1.0] /Users/johnburnard/.gradle/caches/8.13/transforms/fde374cffc0ecdf113655d98c884017c/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+139            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+139-->[com.google.android.gms:play-services-base:18.1.0] /Users/johnburnard/.gradle/caches/8.13/transforms/fde374cffc0ecdf113655d98c884017c/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+140            android:exported="false"
+140-->[com.google.android.gms:play-services-base:18.1.0] /Users/johnburnard/.gradle/caches/8.13/transforms/fde374cffc0ecdf113655d98c884017c/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+141            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+141-->[com.google.android.gms:play-services-base:18.1.0] /Users/johnburnard/.gradle/caches/8.13/transforms/fde374cffc0ecdf113655d98c884017c/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+142
+143        <meta-data
+143-->[com.google.android.gms:play-services-basement:18.1.0] /Users/johnburnard/.gradle/caches/8.13/transforms/e154d24c5a8b27436c7fb11692c52fa2/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+144            android:name="com.google.android.gms.version"
+144-->[com.google.android.gms:play-services-basement:18.1.0] /Users/johnburnard/.gradle/caches/8.13/transforms/e154d24c5a8b27436c7fb11692c52fa2/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+145            android:value="@integer/google_play_services_version" />
+145-->[com.google.android.gms:play-services-basement:18.1.0] /Users/johnburnard/.gradle/caches/8.13/transforms/e154d24c5a8b27436c7fb11692c52fa2/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+146
+147        <provider
+147-->[androidx.emoji2:emoji2:1.2.0] /Users/johnburnard/.gradle/caches/8.13/transforms/7fd1b6c789431d6a89a5bf233829222b/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+148            android:name="androidx.startup.InitializationProvider"
+148-->[androidx.emoji2:emoji2:1.2.0] /Users/johnburnard/.gradle/caches/8.13/transforms/7fd1b6c789431d6a89a5bf233829222b/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+149            android:authorities="com.example.follower.androidx-startup"
+149-->[androidx.emoji2:emoji2:1.2.0] /Users/johnburnard/.gradle/caches/8.13/transforms/7fd1b6c789431d6a89a5bf233829222b/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+150            android:exported="false" >
+150-->[androidx.emoji2:emoji2:1.2.0] /Users/johnburnard/.gradle/caches/8.13/transforms/7fd1b6c789431d6a89a5bf233829222b/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+151            <meta-data
+151-->[androidx.emoji2:emoji2:1.2.0] /Users/johnburnard/.gradle/caches/8.13/transforms/7fd1b6c789431d6a89a5bf233829222b/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+152                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+152-->[androidx.emoji2:emoji2:1.2.0] /Users/johnburnard/.gradle/caches/8.13/transforms/7fd1b6c789431d6a89a5bf233829222b/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+153                android:value="androidx.startup" />
+153-->[androidx.emoji2:emoji2:1.2.0] /Users/johnburnard/.gradle/caches/8.13/transforms/7fd1b6c789431d6a89a5bf233829222b/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+154            <meta-data
+154-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:34:13-36:52
+155                android:name="androidx.work.WorkManagerInitializer"
+155-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:35:17-68
+156                android:value="androidx.startup" />
+156-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:36:17-49
+157            <meta-data
+157-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/johnburnard/.gradle/caches/8.13/transforms/d3e9c08bd11ae394033ffc7a7a987b8e/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+158                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+158-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/johnburnard/.gradle/caches/8.13/transforms/d3e9c08bd11ae394033ffc7a7a987b8e/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+159                android:value="androidx.startup" />
+159-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/johnburnard/.gradle/caches/8.13/transforms/d3e9c08bd11ae394033ffc7a7a987b8e/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+160            <meta-data
+160-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+161                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+161-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+162                android:value="androidx.startup" />
+162-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+163        </provider>
+164
+165        <service
+165-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:39:9-45:35
+166            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+166-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:40:13-88
+167            android:directBootAware="false"
+167-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:41:13-44
+168            android:enabled="@bool/enable_system_alarm_service_default"
+168-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:42:13-72
+169            android:exported="false" />
+169-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:43:13-37
+170        <service
+170-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:46:9-52:35
+171            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+171-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:47:13-84
+172            android:directBootAware="false"
+172-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:48:13-44
+173            android:enabled="@bool/enable_system_job_service_default"
+173-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:49:13-70
+174            android:exported="true"
+174-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:50:13-36
+175            android:permission="android.permission.BIND_JOB_SERVICE" />
+175-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:51:13-69
+176        <service
+176-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:53:9-59:35
+177            android:name="androidx.work.impl.foreground.SystemForegroundService"
+177-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:54:13-81
+178            android:directBootAware="false"
+178-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:55:13-44
+179            android:enabled="@bool/enable_system_foreground_service_default"
+179-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:56:13-77
+180            android:exported="false" />
+180-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:57:13-37
+181
+182        <receiver
+182-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:61:9-66:35
+183            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+183-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:62:13-88
+184            android:directBootAware="false"
+184-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:63:13-44
+185            android:enabled="true"
+185-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:64:13-35
+186            android:exported="false" />
+186-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:65:13-37
+187        <receiver
+187-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:67:9-77:20
+188            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+188-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:68:13-106
+189            android:directBootAware="false"
+189-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:69:13-44
+190            android:enabled="false"
+190-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:70:13-36
+191            android:exported="false" >
+191-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:71:13-37
+192            <intent-filter>
+192-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:73:13-76:29
+193                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+193-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:74:17-87
+193-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:74:25-84
+194                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+194-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:75:17-90
+194-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:75:25-87
+195            </intent-filter>
+196        </receiver>
+197        <receiver
+197-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:78:9-88:20
+198            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+198-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:79:13-104
+199            android:directBootAware="false"
+199-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:80:13-44
+200            android:enabled="false"
+200-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:81:13-36
+201            android:exported="false" >
+201-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:82:13-37
+202            <intent-filter>
+202-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:84:13-87:29
+203                <action android:name="android.intent.action.BATTERY_OKAY" />
+203-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:85:17-77
+203-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:85:25-74
+204                <action android:name="android.intent.action.BATTERY_LOW" />
+204-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:86:17-76
+204-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:86:25-73
+205            </intent-filter>
+206        </receiver>
+207        <receiver
+207-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:89:9-99:20
+208            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+208-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:90:13-104
+209            android:directBootAware="false"
+209-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:91:13-44
+210            android:enabled="false"
+210-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:92:13-36
+211            android:exported="false" >
+211-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:93:13-37
+212            <intent-filter>
+212-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:95:13-98:29
+213                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+213-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:96:17-83
+213-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:96:25-80
+214                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+214-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:97:17-82
+214-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:97:25-79
+215            </intent-filter>
+216        </receiver>
+217        <receiver
+217-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:100:9-109:20
+218            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+218-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:101:13-103
+219            android:directBootAware="false"
+219-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:102:13-44
+220            android:enabled="false"
+220-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:103:13-36
+221            android:exported="false" >
+221-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:104:13-37
+222            <intent-filter>
+222-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:106:13-108:29
+223                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+223-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:107:17-79
+223-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:107:25-76
+224            </intent-filter>
+225        </receiver>
+226        <receiver
+226-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:110:9-121:20
+227            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+227-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:111:13-88
+228            android:directBootAware="false"
+228-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:112:13-44
+229            android:enabled="false"
+229-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:113:13-36
+230            android:exported="false" >
+230-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:114:13-37
+231            <intent-filter>
+231-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:116:13-120:29
+232                <action android:name="android.intent.action.BOOT_COMPLETED" />
+232-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:102:17-79
+232-->/Users/johnburnard/Documents/GitHub/Follower/app/src/main/AndroidManifest.xml:102:25-76
+233                <action android:name="android.intent.action.TIME_SET" />
+233-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:118:17-73
+233-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:118:25-70
+234                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+234-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:119:17-81
+234-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:119:25-78
+235            </intent-filter>
+236        </receiver>
+237        <receiver
+237-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:122:9-131:20
+238            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+238-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:123:13-99
+239            android:directBootAware="false"
+239-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:124:13-44
+240            android:enabled="@bool/enable_system_alarm_service_default"
+240-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:125:13-72
+241            android:exported="false" >
+241-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:126:13-37
+242            <intent-filter>
+242-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:128:13-130:29
+243                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+243-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:129:17-98
+243-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:129:25-95
+244            </intent-filter>
+245        </receiver>
+246        <receiver
+246-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:132:9-142:20
+247            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+247-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:133:13-78
+248            android:directBootAware="false"
+248-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:134:13-44
+249            android:enabled="true"
+249-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:135:13-35
+250            android:exported="true"
+250-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:136:13-36
+251            android:permission="android.permission.DUMP" >
+251-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:137:13-57
+252            <intent-filter>
+252-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:139:13-141:29
+253                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+253-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:140:17-88
+253-->[androidx.work:work-runtime:2.9.0] /Users/johnburnard/.gradle/caches/8.13/transforms/10c3620628b66bc06873f37cb4ad0ab9/transformed/work-runtime-2.9.0/AndroidManifest.xml:140:25-85
+254            </intent-filter>
+255        </receiver>
+256
+257        <uses-library
+257-->[androidx.window:window:1.0.0] /Users/johnburnard/.gradle/caches/8.13/transforms/3fb9014784c5e1098e2ee21e4bba712e/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+258            android:name="androidx.window.extensions"
+258-->[androidx.window:window:1.0.0] /Users/johnburnard/.gradle/caches/8.13/transforms/3fb9014784c5e1098e2ee21e4bba712e/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+259            android:required="false" />
+259-->[androidx.window:window:1.0.0] /Users/johnburnard/.gradle/caches/8.13/transforms/3fb9014784c5e1098e2ee21e4bba712e/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+260        <uses-library
+260-->[androidx.window:window:1.0.0] /Users/johnburnard/.gradle/caches/8.13/transforms/3fb9014784c5e1098e2ee21e4bba712e/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+261            android:name="androidx.window.sidecar"
+261-->[androidx.window:window:1.0.0] /Users/johnburnard/.gradle/caches/8.13/transforms/3fb9014784c5e1098e2ee21e4bba712e/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+262            android:required="false" />
+262-->[androidx.window:window:1.0.0] /Users/johnburnard/.gradle/caches/8.13/transforms/3fb9014784c5e1098e2ee21e4bba712e/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+263
+264        <service
+264-->[androidx.room:room-runtime:2.6.1] /Users/johnburnard/.gradle/caches/8.13/transforms/4f1a6f6f60a7ca30b04a0ccb89e5b4d6/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+265            android:name="androidx.room.MultiInstanceInvalidationService"
+265-->[androidx.room:room-runtime:2.6.1] /Users/johnburnard/.gradle/caches/8.13/transforms/4f1a6f6f60a7ca30b04a0ccb89e5b4d6/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+266            android:directBootAware="true"
+266-->[androidx.room:room-runtime:2.6.1] /Users/johnburnard/.gradle/caches/8.13/transforms/4f1a6f6f60a7ca30b04a0ccb89e5b4d6/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+267            android:exported="false" />
+267-->[androidx.room:room-runtime:2.6.1] /Users/johnburnard/.gradle/caches/8.13/transforms/4f1a6f6f60a7ca30b04a0ccb89e5b4d6/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+268
+269        <receiver
+269-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+270            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+270-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+271            android:directBootAware="false"
+271-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+272            android:enabled="true"
+272-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+273            android:exported="true"
+273-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+274            android:permission="android.permission.DUMP" >
+274-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+275            <intent-filter>
+275-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+276                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+276-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+276-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+277            </intent-filter>
+278            <intent-filter>
+278-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+279                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+279-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+279-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+280            </intent-filter>
+281            <intent-filter>
+281-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+282                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+282-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+282-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+283            </intent-filter>
+284            <intent-filter>
+284-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+285                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+285-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+285-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/johnburnard/.gradle/caches/8.13/transforms/08114049970c94b8b6e18c017df21297/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+286            </intent-filter>
+287        </receiver>
+288    </application>
+289
+290</manifest>
