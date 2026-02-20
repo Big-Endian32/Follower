@@ -3,7 +3,6 @@ package com.example.follower.detection
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import com.example.follower.data.model.DeviceSighting
 import org.json.JSONArray
 import org.json.JSONObject
 import kotlin.math.sqrt
@@ -30,6 +29,7 @@ class CalibrationManager(context: Context, private val settings: SuspicionSettin
         private const val KEY_SAMPLES = "samples"
         private const val MIN_SAMPLES_FOR_TUNING = 50
         private const val MAX_SAMPLES = 500
+        private const val BATCH_FLUSH_INTERVAL = 10
     }
 
     private val prefs: SharedPreferences =
@@ -43,15 +43,20 @@ class CalibrationManager(context: Context, private val settings: SuspicionSettin
         val score: Int
     )
 
+    /** In-memory buffer for batching writes (avoids writing JSON to disk on every sample). */
+    private val pendingBuffer = mutableListOf<FeatureVector>()
+
     /**
      * Record a scored device observation as a "benign" calibration sample.
      * Only records when calibration mode is enabled.
+     *
+     * Samples are buffered in memory and flushed to disk every
+     * [BATCH_FLUSH_INTERVAL] samples to reduce SharedPreferences I/O.
      */
     fun recordSample(result: SuspicionResult, avgRssi: Float) {
         if (!settings.calibrationModeEnabled) return
 
-        val samples = loadSamples().toMutableList()
-        samples.add(
+        pendingBuffer.add(
             FeatureVector(
                 totalExposureMinutes = result.totalExposureMinutes,
                 longestStreakMinutes = result.longestStreakMinutes,
@@ -61,6 +66,22 @@ class CalibrationManager(context: Context, private val settings: SuspicionSettin
             )
         )
 
+        // Only flush to disk every N samples
+        if (pendingBuffer.size >= BATCH_FLUSH_INTERVAL) {
+            flushPendingSamples()
+        }
+    }
+
+    /**
+     * Flush any pending in-memory samples to disk and optionally auto-tune.
+     */
+    fun flushPendingSamples() {
+        if (pendingBuffer.isEmpty()) return
+
+        val samples = loadSamples().toMutableList()
+        samples.addAll(pendingBuffer)
+        pendingBuffer.clear()
+
         // Cap stored samples
         val trimmed = if (samples.size > MAX_SAMPLES) {
             samples.takeLast(MAX_SAMPLES)
@@ -69,7 +90,7 @@ class CalibrationManager(context: Context, private val settings: SuspicionSettin
         }
 
         saveSamples(trimmed)
-        Log.d(TAG, "Calibration sample recorded (${trimmed.size} total)")
+        Log.d(TAG, "Calibration samples flushed (${trimmed.size} total)")
 
         if (trimmed.size >= MIN_SAMPLES_FOR_TUNING) {
             autoTuneThresholds(trimmed)
@@ -124,9 +145,10 @@ class CalibrationManager(context: Context, private val settings: SuspicionSettin
         return 0f
     }
 
-    fun getSampleCount(): Int = loadSamples().size
+    fun getSampleCount(): Int = loadSamples().size + pendingBuffer.size
 
     fun clearSamples() {
+        pendingBuffer.clear()
         prefs.edit().remove(KEY_SAMPLES).apply()
         Log.i(TAG, "Calibration samples cleared")
     }

@@ -135,4 +135,7 @@ class DeviceRepository(private val deviceDao: DeviceDao) {
     suspend fun getSightingCountSince(since: Long): Int = deviceDao.getSightingCountSince(since)
 
     suspend fun getUnacknowledgedAlertCount(): Int = deviceDao.getUnacknowledgedAlertCount()
+
+    suspend fun getUniqueDeviceCountSince(since: Long): Int =
+        deviceDao.getUniqueDeviceCountSince(since)
 }

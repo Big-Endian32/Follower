@@ -25,6 +25,12 @@ data class ScanResult(
     val bluetoothClass: Int? = null,
     val bondState: Int? = null,
 
+    // BLE advertising data for fingerprinting (survives MAC randomization)
+    val manufacturerData: ByteArray? = null,
+    val serviceUuids: List<String>? = null,
+    val txPowerLevel: Int? = null,
+    val advertisingInterval: Int? = null,
+
     // Probe request specific (Tier 2)
     val isProbeRequest: Boolean = false,
     val probedSsids: List<String>? = null,

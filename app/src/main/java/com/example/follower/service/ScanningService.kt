@@ -10,7 +10,6 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.example.follower.FollowerApplication
 import com.example.follower.R
-import com.example.follower.data.model.ScanResult
 import com.example.follower.data.model.ThreatAlert
 import com.example.follower.data.model.ThreatLevel
 import com.example.follower.detection.DetectionEngine
@@ -247,6 +246,8 @@ class ScanningService : Service() {
             while (isActive) {
                 delay(60 * 60 * 1000L) // Every hour
                 detectionEngine.performMaintenance()
+                // Flush any pending calibration samples to disk
+                (application as FollowerApplication).calibrationManager.flushPendingSamples()
             }
         }
     }
@@ -261,6 +262,9 @@ class ScanningService : Service() {
 
         usbDriver?.close()
         usbDriver = null
+
+        // Flush any pending calibration samples before shutdown
+        (application as FollowerApplication).calibrationManager.flushPendingSamples()
 
         _isScanning.value = false
     }
